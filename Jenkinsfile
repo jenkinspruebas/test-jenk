@@ -1,25 +1,16 @@
 pipeline {
-    agent {
-	    node {
-	        label 'jenkins-demo-slave'
-	    }
-	}
-
+    agent none
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+    	stage('Build') {
+    		agent { node { label 'jenkins-demo-slave' }
+    			echo 'Desde el slave'
+    			echo 'Ejecuto el comando'
+    			sh 'mvn --version'
+    		}
+
+    		steps { 
+    			echo 'En el build'
+    		}
+    	}
     }
 }
