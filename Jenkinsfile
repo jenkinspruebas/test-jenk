@@ -10,4 +10,25 @@ pipeline {
     			}
     		}
     	}
+
+    	post {
+    		always {
+    			echo 'Siempre'
+    		}
+    		changed {
+    			echo 'En cambios'
+    		}
+    		failure	{
+    			echo`'Si falla'
+    		}
+    		success {
+    			echo 'Si funciona'
+    		}
+    		unstable {
+    			echo 'Versión inestable'
+    		}
+    		aborted {
+    			echo 'Cancelado manualmente'
+    		}
+    	}
     }
