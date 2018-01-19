@@ -7,11 +7,8 @@ pipeline {
 	    			echo 'Desde el slave'
 	    			echo 'Ejecuto el comando'
 	    			sh 'mvn --version'
+	    			echo 'En el build'
     			}
-    		}
-
-    		steps { 
-    			echo 'En el build'
     		}
     	}
     }
