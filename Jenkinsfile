@@ -8,6 +8,14 @@ pipeline {
     			}
     			steps {
 	    			echo 'Desde el slave'
+
+	    			script {
+		    			def browsers = ['chrome', 'firefox']
+	                    for (int i = 0; i < browsers.size(); ++i) {
+	                        echo "Testing the ${browsers[i]} browser"
+	                    }
+	    			}
+
 	    			echo 'Ejecuto el comando'
 	    			echo 'En el build'
     			}
