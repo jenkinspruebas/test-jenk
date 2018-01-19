@@ -12,34 +12,41 @@ pipeline {
 	    			script {
 		    			def browsers = ['chrome', 'firefox']
 	                    for (int i = 0; i < browsers.size(); ++i) {
-	                        echo "Testing the ${browsers[i]} browser"
-	                    }
-	    			}
-
-	    			echo 'Ejecuto el comando'
-	    			echo 'En el build'
-    			}
+	                    echo "Probando script, ${browsers[i]} browser"
+	                }
+	    		}
+	   			echo 'Ejecuto el comando'
+	    		echo 'En el build'
     		}
     	}
-
-    	post {
-    		always {
-    			echo 'Siempre'
-    		}
-    		changed {
-    			echo 'En cambios'
-    		}
-    		failure	{
-    			echo 'Si falla'
-    		}
-    		success {
-    			echo 'Si funciona'
-    		}
-    		unstable {
-    			echo 'Versión inestable'
-    		}
-    		aborted {
-    			echo 'Cancelado manualmente'
+    	stage('Test') {
+    		agent { label 'master' }
+    		if (env.BRANCH_NAME == 'master') {
+    			echo 'En Test'
+    		} else {
+    			echo 'Algo no funciona'
     		}
     	}
     }
+
+    post {
+    	always {
+    		echo 'Siempre'
+    	}
+    	changed {
+    		echo 'En cambios'
+    	}
+    	failure	{
+    		echo 'Si falla'
+    	}
+    	success {
+    		echo 'Si funciona'
+    	}
+    	unstable {
+    		echo 'Versión inestable'
+    	}
+    	aborted {
+    		echo 'Cancelado manualmente'
+    	}
+    }
+}
