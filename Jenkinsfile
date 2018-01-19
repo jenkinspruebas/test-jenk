@@ -19,7 +19,7 @@ pipeline {
     			echo 'En cambios'
     		}
     		failure	{
-    			echo`'Si falla'
+    			echo 'Si falla'
     		}
     		success {
     			echo 'Si funciona'
