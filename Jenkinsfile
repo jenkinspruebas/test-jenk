@@ -22,11 +22,7 @@ pipeline {
     	stage('Test') {
     		agent { label 'master' }
     		steps {
-	    		if (env.BRANCH_NAME == 'master') {
-	    			echo 'En Test'
-	    		} else {
-	    			echo 'Algo no funciona'
-	    		}
+				echo 'En test'
     		}
     	}
     }
