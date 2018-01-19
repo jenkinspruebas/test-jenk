@@ -3,6 +3,9 @@ pipeline {
     stages {
     	stage('Build') {
     		agent { label 'jenkins-demo-slave' }
+    			when {
+    				branch 'master'
+    			}
     			steps {
 	    			echo 'Desde el slave'
 	    			echo 'Ejecuto el comando'
