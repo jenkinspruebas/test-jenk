@@ -1,5 +1,8 @@
 pipeline {
     agent none
+    options {
+    	timestamps()
+    }
     stages {
     	stage('Build') {
     		agent { label 'jenkins-demo-slave' }
@@ -24,6 +27,10 @@ pipeline {
     		steps {
 				echo 'En test'
     		}
+    	}
+
+    	stage('Prueba') {
+
     	}
     }
 
