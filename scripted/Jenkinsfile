@@ -1,7 +1,26 @@
 node {
-    stage 'input'
-    def userPasswordInput = input(
-        id: 'Password', message: 'input your password: ', ok: 'ok', parameters: [string(defaultValue: 'master', description: '.....', name: 'LIB_TEST')]
-    )
-    echo ("Password was: " + userPasswordInput)
+    stage('Check the branch') {
+        if (env.BRANCH_NAME == 'master') {
+            checkout()
+            build()
+            unitTest()
+        } else {
+            checkout()
+            build()
+            allTest()
+            preview()
+        }
+    }
+}
+
+def checkout() {
+    echo 'Comprobando'
+}
+
+def build() {
+    echo 'Building'
+}
+
+def unitTest() {
+    echo 'Test a la rama master'
 }
