@@ -36,8 +36,8 @@ pipeline {
 		    steps {
 		    	node ('slave'){
 			        // do stuff here
-			        stage 'input'
-				    def userPasswordInput = input( id: 'Password', message: 'input your password: ', ok: 'ok', parameters: [string(defaultValue: 'master', description: '.....', name: 'LIB_TEST')])
+				    def userPasswordInput = input( id: 'Password', message: 'input your password: ', ok: 'ok', parameters: 
+				    [[$class: 'TextParameterDefinition', defaultValue: 'default', description: 'descript', name: 'password']])
 				    echo ("Password was: " + userPasswordInput)
 		    	}
 		    	echo 'Hola'
