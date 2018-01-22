@@ -32,6 +32,12 @@ pipeline {
 				echo 'En test'
     		}
     	}
+    	stage ('a stage holding a node') {
+		    node ('slave'){
+		        // do stuff here
+		        echo 'Hola dentro del nodo'
+		    }
+		}
     }
 
     post {
