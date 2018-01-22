@@ -33,11 +33,11 @@ pipeline {
     		}
     	}
     	stage ('a stage holding a node') {
-		    node ('slave'){
-		        // do stuff here
-		        echo 'Hola dentro del nodo'
-		    }
 		    steps {
+		    	node ('slave'){
+			        // do stuff here
+			        echo 'Hola dentro del nodo'
+		    	}
 		    	echo 'Hola'
 		    }
 		}
