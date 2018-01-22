@@ -9,11 +9,11 @@ pipeline {
     			when {
     				branch 'master'
     			}
+    			input {
+    				message "Should we continue?"
+    				ok "Yes"
+    			}
     			steps {
-    				input {
-    					message "Should we continue?"
-    					ok "Yes"
-    				}
 	    			echo 'Desde el slave'
 
 	    			script {
