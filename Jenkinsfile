@@ -12,6 +12,7 @@ pipeline {
     			steps {
     				input {
     					message "Should we continue?"
+    					ok "Yes"
     				}
 	    			echo 'Desde el slave'
 
