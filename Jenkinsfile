@@ -10,6 +10,9 @@ pipeline {
     				branch 'master'
     			}
     			steps {
+    				input {
+    					message "Ready to go? Proceed or Abort"
+    				}
 	    			echo 'Desde el slave'
 
 	    			script {
