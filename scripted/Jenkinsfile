@@ -24,3 +24,11 @@ def build() {
 def unitTest() {
     echo 'Test a la rama master'
 }
+
+def allTest() {
+    echo 'Todas las pruebas'
+}
+
+def preview() {
+    echo 'Previsualizacion del despliegue'
+}
