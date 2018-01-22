@@ -32,17 +32,6 @@ pipeline {
 				echo 'En test'
     		}
     	}
-    	stage ('a stage holding a node') {
-		    steps {
-		    	node ('slave'){
-			        // do stuff here
-				    def userPasswordInput = input( id: 'Password', message: 'input your password: ', ok: 'ok', parameters: 
-				    [[$class: 'TextParameterDefinition', defaultValue: 'default', description: 'descript', name: 'password']])
-				    echo ("Password was: " + userPasswordInput)
-		    	}
-		    	echo 'Hola'
-		    }
-		}
     }
 
     post {
