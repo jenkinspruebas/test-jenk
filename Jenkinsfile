@@ -28,10 +28,6 @@ pipeline {
 				echo 'En test'
     		}
     	}
-
-    	stage('Prueba') {
-
-    	}
     }
 
     post {
