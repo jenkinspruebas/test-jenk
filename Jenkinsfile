@@ -33,7 +33,6 @@ pipeline {
     		}
     	}
 
-    	stage('Input') {
 	    	node {
 			    stage 'input'
 			    def userPasswordInput = input(
@@ -41,7 +40,6 @@ pipeline {
 			    )
 			    echo ("Password was: " + userPasswordInput)
 			}
-    	}
     }
 
     post {
