@@ -41,6 +41,9 @@ pipeline {
 			    )
 			    echo ("Password was: " + userPasswordInput)
 			}
+			steps {
+				echo "Hola"
+			}
     	}
     }
 
