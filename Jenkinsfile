@@ -37,6 +37,9 @@ pipeline {
 		        // do stuff here
 		        echo 'Hola dentro del nodo'
 		    }
+		    steps {
+		    	echo 'Hola'
+		    }
 		}
     }
 
