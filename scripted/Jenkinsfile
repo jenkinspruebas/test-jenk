@@ -1,7 +1,7 @@
 node {
     stage('Check the branch') {
         if (env.BRANCH_NAME == 'master') {
-            echo '${env.BRANCH_NAME}'
+            echo "${env.BRANCH_NAME}"
             checkout()
             build()
             unitTest()
