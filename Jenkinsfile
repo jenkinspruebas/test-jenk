@@ -36,7 +36,13 @@ pipeline {
 		    steps {
 		    	node ('slave'){
 			        // do stuff here
-			        echo 'Hola dentro del nodo'
+			        stage 'input'
+    def userPasswordInput = input(
+        id: 'userPasswordInput', message: 'your password', parameters: [
+            [$class: 'TextParameterDefinition', defaultValue='mb', description: 'vbn', name: 'password']
+        ]
+    )
+    echo ("Password was: " + userPasswordInput)
 		    	}
 		    	echo 'Hola'
 		    }
