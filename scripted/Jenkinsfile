@@ -20,8 +20,16 @@ def checkout() {
 }
 
 def build() {
+    def userInput = input(
+        id : 'userInput', 
+        message: 'Input something', 
+        parameters: [
+            [$class: 'TextParameterDefinition', defaultVaue: '', description: 'Input text', name: 'inputText']
+        ]
+    )
+    echo ("Text: " + userInput)
     echo 'Building'
-    writeFile file: "output/usefulfile.txt", text: "This file is useful, need to archive it."
+    writeFile file: "output/usefulfile.txt", text: "text: "+userInput
     archiveArtifacts artifacts: 'output/*.txt'
 }
 
