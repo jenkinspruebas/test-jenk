@@ -10,8 +10,14 @@ pipeline {
     				branch 'master'
     			}
     			input {
-    				message "Should we continue?"
-    				ok "Yes"
+    				/*message "Should we continue?"
+    				ok "Yes"*/
+    				id: 'userInput1'
+    				message: 'Input something 1'
+    				ok: 'ok'
+    				parameters {
+    					string(name: 'Prueba', defaultValue: 'staging', description: '')
+    				}
     			}
     			steps {
 	    			echo 'Desde el slave'
