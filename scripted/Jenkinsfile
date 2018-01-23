@@ -16,7 +16,7 @@ node {
 
 def checkout() {
     echo 'Comprobando'
-
+    
 }
 
 def build() {

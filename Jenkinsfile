@@ -56,6 +56,7 @@ pipeline {
     		agent { label 'master' }
     		steps {
 				echo 'En test'
+				sh './src/test/hello-world'
     		}
     	}
     }
