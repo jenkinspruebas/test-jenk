@@ -29,7 +29,7 @@ pipeline {
 	                    		[$class: 'TextParameterDefinition', defaultVaue: '', description: 'Input text', name: 'inputText']
 	                    	]
 	                    )
-	                    echo ("Text: " + userInput['inputText'])
+	                    echo ("Text: " + userInput)
 	    			}
 	   			echo 'Ejecuto el comando'
 	    		echo 'En el build'
