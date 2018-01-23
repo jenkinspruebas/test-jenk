@@ -64,6 +64,7 @@ pipeline {
     	always {
     		echo 'Siempre'
     		node('master') {
+    			writeFile file: "output/usefulfile.txt", text: "This file is useful, need to archive it."
 	    		echo 'artifacts'
 	    		archiveArtifacts artifacts: 'output/*.txt'
 	    	}
