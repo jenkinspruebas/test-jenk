@@ -56,13 +56,14 @@ pipeline {
     		agent { label 'master' }
     		steps {
 				echo 'En test'
-				sh './src/test/hello-world'
     		}
     	}
     }
 
     post {
     	always {
+    		echo 'artifacts'
+    		archiveArtifacts artifacts: 'screenshots/**,build/test/results/*.xml', allowEmptyArchive: true
     		echo 'Siempre'
     	}
     	changed {
