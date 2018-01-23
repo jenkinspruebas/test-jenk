@@ -17,20 +17,20 @@ pipeline {
 	    			echo 'Desde el slave'
 
 	    			script {
-		    			def browsers = ['chrome', 'firefox']
+		    			/*def browsers = ['chrome', 'firefox']
 	                    for (int i = 0; i < browsers.size(); ++i) {
 	                    echo "Probando script, ${browsers[i]} browser"
+	                	}*/
 
-	                    /*def userInput = input(
+	                	def userInput = input(
 	                    	id : 'userInput', 
 	                    	message: 'Input something', 
 	                    	parameters: [
 	                    		[$class: 'TextParameterDefinition', defaultVaue: '', description: 'Input text', name: 'inputText']
 	                    	]
 	                    )
-	                    echo ("Text: " + userInput['inputText'])*/
-	                }
-	    		}
+	                    echo ("Text: " + userInput['inputText'])
+	    			}
 	   			echo 'Ejecuto el comando'
 	    		echo 'En el build'
     		}
