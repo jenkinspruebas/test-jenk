@@ -12,9 +12,9 @@ pipeline {
     			input {
     				/*message "Should we continue?"
     				ok "Yes"*/
-    				id: "userInput1"
-    				message: "Input something 1"
-    				ok: "ok"
+    				id "userInput1"
+    				message "Input something 1"
+    				ok "ok"
     				parameters {
     					string(name: 'Prueba', defaultValue: 'staging', description: '')
     				}
