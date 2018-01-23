@@ -63,7 +63,7 @@ pipeline {
     post {
     	always {
     		echo 'artifacts'
-    		archiveArtifacts artifacts: 'screenshots/**,build/test/results/*.xml', allowEmptyArchive: true
+    		archiveArtifacts artifacts: 'output/*.txt', allowEmptyArchive: true
     		echo 'Siempre'
     	}
     	changed {
