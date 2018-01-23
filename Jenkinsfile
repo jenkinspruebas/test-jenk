@@ -63,8 +63,10 @@ pipeline {
     post {
     	always {
     		echo 'Siempre'
-    		echo 'artifacts'
-    		archiveArtifacts artifacts: 'output/*.txt'
+    		node('master') {
+	    		echo 'artifacts'
+	    		archiveArtifacts artifacts: 'output/*.txt'
+	    	}
     	}
     	changed {
     		echo 'En cambios'
