@@ -60,10 +60,13 @@ pipeline {
     	}
     }
 
+    node {
+    	    echo 'artifacts'
+    		archiveArtifacts artifacts: 'output/*.txt', allowEmptyArchive: true
+    }
+
     post {
     	always {
-    		echo 'artifacts'
-    		archiveArtifacts artifacts: 'output/*.txt', allowEmptyArchive: true
     		echo 'Siempre'
     	}
     	changed {
