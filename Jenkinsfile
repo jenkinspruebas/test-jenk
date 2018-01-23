@@ -63,4 +63,3 @@ pipeline {
     		echo 'Cancelado manualmente'
     	}
     }
-}
