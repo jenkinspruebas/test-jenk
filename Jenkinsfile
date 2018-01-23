@@ -67,6 +67,7 @@ pipeline {
     			writeFile file: "output/usefulfile.txt", text: "This file is useful, need to archive it."
 	    		echo 'artifacts'
 	    		archiveArtifacts artifacts: 'output/*.txt'
+	    		mail to: 'jenkinspruebas@gmail.com', subject: "Failed Pipeline: ${currentBuild.fullDisplayName}", body: "Something is wrong with ${env.BUILD_URL}"
 	    	}
     	}
     	changed {
