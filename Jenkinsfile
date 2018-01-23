@@ -10,18 +10,29 @@ pipeline {
     				branch 'master'
     			}
     			input {
-    				/*message "Should we continue?"
-    				ok "Yes"*/
+    				message ""
+    				id ""
+    				ok ""
+    				//submitter ""
+    				//submitterParameter ""
+    				parameters {
+    					string(name: 'TEST1', defaultValue: 'Select choice', description: 'Choices', choices: 'QA\nUAT\nProduction\nDevelop\nMaster')
+    				}
+
+    			}
+    			/*input {
+    				message "Should we continue?"
+    				ok "Yes"
     				id "userInput1"
     				message "Input something 1"
     				ok "ok"
     				parameters {
     					string(name: 'Prueba', defaultValue: 'staging', description: '')
     				}
-    			}
+    			}*/
     			steps {
 	    			echo 'Desde el slave'
-
+	    			echo "${TEST1}"
 	    			script {
 		    			/*def browsers = ['chrome', 'firefox']
 	                    for (int i = 0; i < browsers.size(); ++i) {
