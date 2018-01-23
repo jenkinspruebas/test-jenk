@@ -16,7 +16,7 @@ pipeline {
     				//submitter ""
     				//submitterParameter ""
     				parameters {
-    					string(name: 'TEST1', defaultValue: 'Select choice', description: 'Choices', choices: 'QA\nUAT\nProduction\nDevelop\nMaster')
+    					booleanParam(name: 'DEBUG_BUILD', defaultValue: true, description: 'Cosa numero 1')
     				}
 
     			}
@@ -32,7 +32,7 @@ pipeline {
     			}*/
     			steps {
 	    			echo 'Desde el slave'
-	    			echo "${TEST1}"
+	    			echo "params.${DEBUG_BUILD}"
 	    			script {
 		    			/*def browsers = ['chrome', 'firefox']
 	                    for (int i = 0; i < browsers.size(); ++i) {
