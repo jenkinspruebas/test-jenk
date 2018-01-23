@@ -21,6 +21,8 @@ def checkout() {
 
 def build() {
     echo 'Building'
+    writeFile file: "output/usefulfile.txt", text: "This file is useful, need to archive it."
+    archiveArtifacts artifacts: 'output/*.txt'
 }
 
 def unitTest() {
