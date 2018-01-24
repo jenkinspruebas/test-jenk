@@ -33,6 +33,7 @@ pipeline {
     			steps {
 	    			echo 'Desde el slave'
 	    			echo "params.${DEBUG_BUILD}"
+	    			properties([pipelineTriggers([[$class: 'GitHubPushTrigger'], pollSCM('H/15 * * * *')])])
 	    			script {
 		    			/*def browsers = ['chrome', 'firefox']
 	                    for (int i = 0; i < browsers.size(); ++i) {
