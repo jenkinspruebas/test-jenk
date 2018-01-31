@@ -22,16 +22,15 @@ def createIssue() {
                 summary: 'Creada desde Jenkins', 
                 description: 'Incidencia creada desde Jenkins de tipo error', 
                 issuetype: [id: '10005'],
-                //Añadidos por mi
-                comment: 'Comentario creado con la incidencia',
-                assignee: 'admin'
+                //AÃ±adidos por mi
+                priority: [id: '1'],
+                labels: ['Hola', 'mundo'],
+                duedate: '2018-03-11',
+                assignee: [name: 'admin']
                 ]
             ]
 
         response = jiraNewIssue issue: testIssue
-
-        echo response.successful.toString()
-        echo response.data.toString()
         }
     }
 }
