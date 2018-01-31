@@ -22,10 +22,12 @@ def createIssue() {
                 summary: 'Creada desde Jenkins', 
                 description: 'Incidencia creada desde Jenkins de tipo error', 
                 issuetype: [id: '10005'],
-                //AÃ±adidos por mi
+                //AÃƒÂ±adidos por mi
                 priority: [id: '1'],
                 labels: ['Hola', 'mundo'],
                 duedate: '2018-03-11',
+                timetracking: [originalEstimate: '1', remainingEstimate: '2'],
+                environment: 'Entorno de prueba',
                 assignee: [name: 'admin']
                 ]
             ]
