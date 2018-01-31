@@ -1,0 +1,47 @@
+node {
+    stage('Check the branch') {
+        properties([pipelineTriggers([[$class: 'GitHubPushTrigger'], pollSCM('H/15 * * * *')])])
+        if (env.BRANCH_NAME == 'master') {
+            echo "${env.BRANCH_NAME}"
+            checkout()
+            build()
+            unitTest()
+        } else {
+            checkout()
+            build()
+            allTest()
+            preview()
+        }
+    }
+}
+
+def checkout() {
+    echo 'Comprobando cosas'
+    
+}
+
+def build() {
+    def userInput = input(
+        id : 'userInput', 
+        message: 'Input something', 
+        parameters: [
+            [$class: 'TextParameterDefinition', defaultVaue: '', description: 'Input text', name: 'inputText']
+        ]
+    )
+    echo ("Text: " + userInput)
+    echo 'Building'
+    writeFile file: "output/usefulfile.txt", text: "text: "+userInput
+    archiveArtifacts artifacts: 'output/*.txt'
+}
+
+def unitTest() {
+    echo 'Test a la rama master'
+}
+
+def allTest() {
+    echo 'Todas las pruebas'
+}
+
+def preview() {
+    echo 'Previsualizacion del despliegue'
+}

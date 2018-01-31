@@ -1,45 +1,54 @@
 node {
     stage('Check the branch') {
-        properties([pipelineTriggers([[$class: 'GitHubPushTrigger'], pollSCM('H/15 * * * *')])])
         if (env.BRANCH_NAME == 'master') {
             echo "${env.BRANCH_NAME}"
-            checkout()
-            build()
-            unitTest()
+            createIssue()
+            assignIssue()
+            addComment()
         } else {
-            checkout()
-            build()
-            allTest()
-            preview()
+            echo "No es la rama master"
         }
     }
 }
 
-def checkout() {
-    echo 'Comprobando cosas'
-    
+def createIssue() {
+    echo 'Creando la incidencia'
+    stage('JIRA') {
+        withEnv(['JIRA_SITE=PRUEB']) {
+            def testIssue = [
+            //Puedes añadir cualquier campo contenido en fields.
+            fields: [ 
+                project: [id: '10000'], 
+                summary: 'Creada desde Jenkins', 
+                description: 'Incidencia creada desde Jenkins de tipo error', 
+                issuetype: [id: '10005']
+                ]
+            ]
+
+        response = jiraNewIssue issue: testIssue
+
+        echo response.successful.toString()
+        echo response.data.toString()
+        }
+    }
 }
 
-def build() {
-    def userInput = input(
-        id : 'userInput', 
-        message: 'Input something', 
-        parameters: [
-            [$class: 'TextParameterDefinition', defaultVaue: '', description: 'Input text', name: 'inputText']
-        ]
-    )
-    echo ("Text: " + userInput)
-    echo 'Building'
-    writeFile file: "output/usefulfile.txt", text: "text: "+userInput
-    archiveArtifacts artifacts: 'output/*.txt'
+def assignIssue() {
+    echo 'Asignando incidencia'
+    stage('JIRA') {
+        withEnv(['JIRA_SITE=PRUEB']) {
+            jiraAssignIssue idOrKey: 'PRUEB-8', userName: 'admin'
+        }
+    }
 }
 
-def unitTest() {
-    echo 'Test a la rama master'
-}
-
-def allTest() {
-    echo 'Todas las pruebas'
+def addComment() {
+    echo 'Añado comentario a otra incidencia'
+    stage('JIRA') {
+        withEnv(['JIRA_SITE=PRUEB']) {
+            jiraAddComment idOrKey: 'PRUEB-8', comment: 'Comentario de prueba.'
+        }
+    }
 }
 
 def preview() {
