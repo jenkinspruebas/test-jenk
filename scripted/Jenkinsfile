@@ -21,7 +21,10 @@ def createIssue() {
                 project: [id: '10000'], 
                 summary: 'Creada desde Jenkins', 
                 description: 'Incidencia creada desde Jenkins de tipo error', 
-                issuetype: [id: '10005']
+                issuetype: [id: '10005'],
+                //Añadidos por mi
+                comment: 'Comentario creado con la incidencia',
+                assignee: 'admin'
                 ]
             ]
 
