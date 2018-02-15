@@ -1,4 +1,4 @@
-pipeline {
+/*pipeline {
     agent none
     options {
     	timestamps()
@@ -87,4 +87,8 @@ pipeline {
     		echo 'Cancelado manualmente'
     	}
     }
+}*/
+
+node {
+    echo 'Hola'
 }
