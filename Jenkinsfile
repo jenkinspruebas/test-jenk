@@ -87,12 +87,9 @@
     		echo 'Cancelado manualmente'
     	}
     }
-<<<<<<< HEAD
-}*/
 
+}*/
 node {
     echo 'Hola'
 }
-=======
-}
->>>>>>> 5ec63801c6e20fcc7f85a5a8fd02fd64dbf04f08
+
