@@ -5,7 +5,7 @@ pipeline {
     }
     stages {
     	stage('Build') {
-    		agent { label 'jenkins-demo-slave' }
+    		//agent { label 'jenkins-demo-slave' }
     			when {
     				branch 'master'
     			}
