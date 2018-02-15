@@ -72,7 +72,7 @@ pipeline {
 	    	}
     	}
     	changed {
-    		echo 'En cambios'
+    		echo 'En cambioss'
     	}
     	failure	{
     		echo 'Si falla'
