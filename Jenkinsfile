@@ -1,3 +1,3 @@
 node {
-    echo 'Hola mundo'
+    echo 'Hola mundo prueba'
 }
